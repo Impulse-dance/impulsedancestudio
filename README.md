@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DanceLife Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Impulse Dance Studio | Hip Hop Girly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Базовые стили */
+        :root {
+            --black: #000000;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,22 +19,23 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
             line-height: 1.6;
         }
 
         /* Шапка */
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem;
+        .header {
+            background: var(--black);
+            padding: 1.5rem;
             position: fixed;
             width: 100%;
-            top: 0;
             z-index: 1000;
+            border-bottom: 2px solid var(--gold);
         }
 
-        nav {
+        .nav {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -37,100 +43,139 @@
             align-items: center;
         }
 
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
+            font-weight: 700;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #e74c3c;
+            color: var(--gold);
         }
 
         /* Герой-секция */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1508700929628-666bc8bd84ea') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1596386461350-326ccb383e9f') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            margin-top: 60px;
+            padding-top: 80px;
         }
 
-        .hero-content h1 {
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
         }
 
-        /* Секции */
-        .section {
+        /* Секция направлений */
+        .directions {
             padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            background: var(--white);
+            color: var(--black);
         }
 
-        .section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #2c3e50;
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        /* Карточки направлений */
-        .classes-grid {
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold);
+        }
+
+        /* Преподаватели */
+        .instructors {
+            padding: 5rem 2rem;
+            background: var(--black);
+        }
+
+        .instructor-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .class-card {
-            background: #f9f9f9;
-            padding: 2rem;
-            border-radius: 10px;
+        .instructor-card {
             text-align: center;
-            transition: transform 0.3s;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
         }
 
-        .class-card:hover {
-            transform: translateY(-10px);
+        .instructor-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            margin-bottom: 1rem;
         }
 
         /* Форма записи */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+        .booking {
+            padding: 5rem 2rem;
+            background: var(--white);
+            color: var(--black);
+            text-align: center;
         }
 
-        input, textarea {
+        .booking iframe {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        button {
-            background: #e74c3c;
-            color: white;
-            padding: 1rem 2rem;
+            max-width: 800px;
+            height: 800px;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: background 0.3s;
+            margin-top: 2rem;
         }
 
-        button:hover {
-            background: #c0392b;
+        /* Контакты */
+        .contacts {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--black);
+        }
+
+        .address {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            color: var(--gold);
         }
 
         /* Адаптивность */
@@ -139,73 +184,75 @@
                 display: none;
             }
 
-            .hero-content h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .section {
-                padding: 3rem 1rem;
+            .instructor-img {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>DanceLife</h1>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">IMPULSE</div>
             <ul class="nav-links">
                 <li><a href="#home">Главная</a></li>
-                <li><a href="#classes">Направления</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#directions">Направления</a></li>
+                <li><a href="#instructors">Преподаватели</a></li>
+                <li><a href="#contacts">Контакты</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Преврати свое тело в инструмент</h1>
-            <p>Профессиональное обучение современным танцам</p>
-            <a href="#contact" class="btn">Записаться сейчас</a>
+            <h1>Hip Hop Girly в Филадельфии</h1>
+            <p>Раскрой свою женственность через танец</p>
         </div>
     </section>
 
-    <section class="section" id="classes">
+    <section class="directions" id="directions">
         <h2>Наши направления</h2>
-        <div class="classes-grid">
-            <div class="class-card">
-                <h3>Хип-Хоп</h3>
-                <p>Базовые движения и связки</p>
-                <p>🕒 Пн/Ср/Пт 19:00</p>
+        <div class="video-grid">
+            <!-- Вставьте свои видео -->
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/ВАШЕ_ВИДЕО" allowfullscreen></iframe>
             </div>
-            <div class="class-card">
-                <h3>Contemporary</h3>
-                <p>Современная пластика</p>
-                <p>🕒 Вт/Чт 18:30</p>
-            </div>
-            <div class="class-card">
-                <h3>Джаз-Фанк</h3>
-                <p>Энергия и стиль</p>
-                <p>🕒 Сб 12:00</p>
-            </div>
+            <!-- Добавьте больше видео -->
         </div>
     </section>
 
-    <section class="section" id="contact">
-        <h2>Записаться на занятие</h2>
-        <div class="contact-form">
-            <form>
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="email" placeholder="Ваш email" required>
-                <select required>
-                    <option value="">Выберите направление</option>
-                    <option>Хип-Хоп</option>
-                    <option>Contemporary</option>
-                    <option>Джаз-Фанк</option>
-                </select>
-                <textarea placeholder="Комментарий" rows="4"></textarea>
-                <button type="submit">Отправить заявку</button>
-            </form>
+    <section class="instructors" id="instructors">
+        <h2>Наши преподаватели</h2>
+        <div class="instructor-grid">
+            <div class="instructor-card">
+                <img src="https://example.com/instructor1.jpg" alt="Преподаватель" class="instructor-img">
+                <h3>Анна Смит</h3>
+                <p>Специалист по Hip Hop Girly</p>
+            </div>
+            <!-- Добавьте больше преподавателей -->
         </div>
+    </section>
+
+    <section class="booking" id="booking">
+        <h2>Онлайн-запись</h2>
+        <!-- Вставьте свою Google-форму -->
+        <div class="google-form">
+            [ВСТАВЬТЕ КОД ВАШЕЙ GOOGLE-ФОРМЫ]
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <h2>Контакты</h2>
+        <div class="address">
+            Philadelphia, 111 Buck Rd
+        </div>
+        <p>Телефон: (555) 123-4567</p>
+        <p>Email: info@impulsedance.com</p>
     </section>
 </body>
 </html>
